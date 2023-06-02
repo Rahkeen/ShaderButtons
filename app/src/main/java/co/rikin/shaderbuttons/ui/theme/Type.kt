@@ -24,14 +24,14 @@ val poppins = FontFamily(
 // Set of Material typography styles to start with
 val Typography = Typography(
   bodyLarge = TextStyle(
-    fontFamily = poppins,
+    fontFamily = quicksand,
     fontWeight = FontWeight.Normal,
     fontSize = 16.sp,
     lineHeight = 24.sp,
     letterSpacing = 0.5.sp
   ),
   labelLarge = TextStyle(
-    fontFamily = poppins,
+    fontFamily = quicksand,
     fontWeight = FontWeight.Medium,
     fontSize = 20.sp,
     lineHeight = 24.sp,

@@ -23,10 +23,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.TextUnitType.Companion.Sp
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import co.rikin.shaderbuttons.shaders.GlowingButton
 import co.rikin.shaderbuttons.shaders.SnowyButton
+import co.rikin.shaderbuttons.shaders.SparkleRipplePlayground
 import co.rikin.shaderbuttons.ui.theme.Moon
 import co.rikin.shaderbuttons.ui.theme.ShaderButtonsTheme
 
@@ -37,17 +39,22 @@ class MainActivity : ComponentActivity() {
     WindowCompat.setDecorFitsSystemWindows(window, false);
 
     setContent {
-      ShaderButtonsTheme {
-        Column(
-          modifier = Modifier
-            .fillMaxSize()
-            .windowInsetsPadding(WindowInsets.statusBars),
-          horizontalAlignment = Alignment.CenterHorizontally,
-          verticalArrangement = Arrangement.Center
-        ) {
-          SnowyButton()
-        }
-      }
+      SparkleRipplePlayground()
+    }
+  }
+}
+
+@Composable
+fun SnowingButton() {
+  ShaderButtonsTheme {
+    Column(
+      modifier = Modifier
+        .fillMaxSize()
+        .windowInsetsPadding(WindowInsets.statusBars),
+      horizontalAlignment = Alignment.CenterHorizontally,
+      verticalArrangement = Arrangement.Center
+    ) {
+      SnowyButton()
     }
   }
 }

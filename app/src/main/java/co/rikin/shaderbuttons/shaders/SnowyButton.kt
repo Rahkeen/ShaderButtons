@@ -65,6 +65,7 @@ private val swedenSnowShader = """
   }
 """.trimIndent()
 
+@Preview
 @Composable
 fun SwedenSnowPlayground() {
   ShaderButtonsTheme {

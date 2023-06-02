@@ -16,4 +16,8 @@ val Sith = Color(0xFFEB212E)
 val Forest = Color(0xFF38a3a5)
 val Moon = Color(0xFFcad2c5)
 val Night = Color(0xFF000814)
+val Clay =  Color(0xFFd6ccc2)
+
+val Terra = Color(0xFFf28482)
+val Fairy = Color(0xFFc8b6ff)
 
