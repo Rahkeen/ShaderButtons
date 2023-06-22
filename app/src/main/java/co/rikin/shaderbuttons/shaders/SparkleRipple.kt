@@ -10,7 +10,9 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -336,19 +338,11 @@ fun SparkleRipplePlayground() {
     }
   }
 
-//  var time by remember { mutableStateOf(0f) }
-//  LaunchedEffect(Unit) {
-//    do {
-//      withFrameMillis {
-//        time += 0.01f
-//      }
-//    } while (true)
-//  }
-
   ShaderButtonsTheme {
     Box(
       Modifier
-        .fillMaxSize()
+        .fillMaxWidth()
+        .aspectRatio(1f)
         .background(color = MaterialTheme.colorScheme.background),
       contentAlignment = Alignment.Center
     ) {

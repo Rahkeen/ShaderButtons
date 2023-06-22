@@ -150,7 +150,7 @@ fun JediGlowingButton() {
     Box(modifier = Modifier
       .fillMaxWidth()
       .aspectRatio(1f), contentAlignment = Alignment.Center) {
-      GlowingButton(glowColor = Jedi, "Hello")
+      GlowingButton(glowColor = Jedi, "🕶")
     }
   }
 }
