@@ -29,6 +29,10 @@ import co.rikin.shaderbuttons.SimpleSketchWithCache
 import co.rikin.shaderbuttons.ui.theme.ShaderButtonsTheme
 import org.intellij.lang.annotations.Language
 
+/**
+ * This example was adapted from https://www.shadertoy.com/view/Mdt3Df
+ */
+
 @Language("AGSL")
 private val swedenSnowShader = """
   uniform float2 resolution;

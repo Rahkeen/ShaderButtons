@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import co.rikin.shaderbuttons.ui.theme.ShaderButtonsTheme
 
-private const val uniformShader = """
+private const val chromaticShader = """
   uniform shader composable;
   uniform float2 size;
   uniform float offset;
@@ -47,7 +47,7 @@ private const val uniformShader = """
 fun ChromaticButton() {
   ShaderButtonsTheme {
     val shifter = remember { Animatable(0f) }
-    val shader = remember { RuntimeShader(uniformShader) }
+    val shader = remember { RuntimeShader(chromaticShader) }
 
     Box(
       modifier = Modifier

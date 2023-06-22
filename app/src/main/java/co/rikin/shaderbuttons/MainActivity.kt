@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderColors
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,16 +29,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import co.rikin.shaderbuttons.shaders.GlowingButton
-import co.rikin.shaderbuttons.shaders.SnowyButton
-import co.rikin.shaderbuttons.shaders.SparkleRipplePlayground
 import co.rikin.shaderbuttons.ui.theme.Androidy
-import co.rikin.shaderbuttons.ui.theme.Jedi
-import co.rikin.shaderbuttons.ui.theme.Moon
 import co.rikin.shaderbuttons.ui.theme.Night
-import co.rikin.shaderbuttons.ui.theme.PurpleGrey40
-import co.rikin.shaderbuttons.ui.theme.ShaderButtonsTheme
-import co.rikin.shaderbuttons.ui.theme.Sith
-import co.rikin.shaderbuttons.ui.theme.VibrantPurp
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,29 +39,14 @@ class MainActivity : ComponentActivity() {
     WindowCompat.setDecorFitsSystemWindows(window, false);
 
     setContent {
-      GlowingButtons()
+      GlowingButtonExample()
     }
   }
 }
 
-@Composable
-fun SnowingButton() {
-  ShaderButtonsTheme {
-    Column(
-      modifier = Modifier
-        .fillMaxSize()
-        .background(color = Color.DarkGray)
-        .windowInsetsPadding(WindowInsets.statusBars),
-      horizontalAlignment = Alignment.CenterHorizontally,
-      verticalArrangement = Arrangement.Center
-    ) {
-      GlowingButtons()
-    }
-  }
-}
 
 @Composable
-fun GlowingButtons() {
+fun GlowingButtonExample() {
   Column(
     modifier = Modifier
       .fillMaxSize()

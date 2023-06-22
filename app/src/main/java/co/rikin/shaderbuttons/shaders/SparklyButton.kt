@@ -7,11 +7,8 @@ import androidx.compose.animation.core.EaseInOut
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -37,23 +34,17 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import co.rikin.shaderbuttons.ui.theme.Clay
-import co.rikin.shaderbuttons.ui.theme.Fairy
-import co.rikin.shaderbuttons.ui.theme.Forest
 import co.rikin.shaderbuttons.ui.theme.Greeny
-import co.rikin.shaderbuttons.ui.theme.Jedi
-import co.rikin.shaderbuttons.ui.theme.Moon
 import co.rikin.shaderbuttons.ui.theme.Night
-import co.rikin.shaderbuttons.ui.theme.Pink40
-import co.rikin.shaderbuttons.ui.theme.Pink80
-import co.rikin.shaderbuttons.ui.theme.Purple40
 import co.rikin.shaderbuttons.ui.theme.ShaderButtonsTheme
-import co.rikin.shaderbuttons.ui.theme.Terra
-import co.rikin.shaderbuttons.ui.theme.VibrantPurp
 import co.rikin.shaderbuttons.ui.theme.VibrantYellow
 import org.intellij.lang.annotations.Language
 import kotlin.math.cos
 import kotlin.math.sin
+
+/**
+ * Most of the code was adapted from AOSP where the original sparkle ripple shader code lives
+ */
 
 @Language("AGSL")
 val shader = """
