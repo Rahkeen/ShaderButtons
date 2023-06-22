@@ -3,10 +3,12 @@ package co.rikin.shaderbuttons
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,6 +16,8 @@ import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderColors
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -23,14 +27,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.TextUnitType.Companion.Sp
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import co.rikin.shaderbuttons.shaders.GlowingButton
 import co.rikin.shaderbuttons.shaders.SnowyButton
 import co.rikin.shaderbuttons.shaders.SparkleRipplePlayground
+import co.rikin.shaderbuttons.ui.theme.Androidy
+import co.rikin.shaderbuttons.ui.theme.Jedi
 import co.rikin.shaderbuttons.ui.theme.Moon
+import co.rikin.shaderbuttons.ui.theme.Night
+import co.rikin.shaderbuttons.ui.theme.PurpleGrey40
 import co.rikin.shaderbuttons.ui.theme.ShaderButtonsTheme
+import co.rikin.shaderbuttons.ui.theme.Sith
+import co.rikin.shaderbuttons.ui.theme.VibrantPurp
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +48,7 @@ class MainActivity : ComponentActivity() {
     WindowCompat.setDecorFitsSystemWindows(window, false);
 
     setContent {
-      SparkleRipplePlayground()
+      GlowingButtons()
     }
   }
 }
@@ -50,11 +59,12 @@ fun SnowingButton() {
     Column(
       modifier = Modifier
         .fillMaxSize()
+        .background(color = Color.DarkGray)
         .windowInsetsPadding(WindowInsets.statusBars),
       horizontalAlignment = Alignment.CenterHorizontally,
       verticalArrangement = Arrangement.Center
     ) {
-      SnowyButton()
+      GlowingButtons()
     }
   }
 }
@@ -64,22 +74,24 @@ fun GlowingButtons() {
   Column(
     modifier = Modifier
       .fillMaxSize()
+      .background(color = Color.Black)
       .windowInsetsPadding(WindowInsets.statusBars),
     horizontalAlignment = Alignment.CenterHorizontally,
   ) {
-    var radius by remember { mutableStateOf(0.3f) }
-    var intensity by remember { mutableStateOf(1.0f) }
+    var radius by remember { mutableStateOf(0.0f) }
+    var intensity by remember { mutableStateOf(0.7f) }
     Row(
       modifier = Modifier
         .fillMaxWidth()
-        .weight(0.5f),
+        .aspectRatio(1f)
+        .background(Color.Black),
       horizontalArrangement = Arrangement.Center,
       verticalAlignment = Alignment.CenterVertically
     ) {
       GlowingButton(
-        glowColor = Moon,
-        text = "Light",
-        textColor = Color.Gray,
+        glowColor = Androidy,
+        text = "🕶",
+        textColor = Night,
         radius = radius,
         intensity = intensity
       )
@@ -100,12 +112,16 @@ fun GlowingButtons() {
         Text(
           "Radius",
           style = MaterialTheme.typography.bodyLarge,
-          color = MaterialTheme.colorScheme.secondary
+          color = Color.White
         )
         Slider(
           modifier = Modifier
             .weight(1f)
             .padding(20.dp),
+          colors = SliderDefaults.colors(
+            thumbColor = Androidy,
+            activeTrackColor = Androidy
+          ),
           value = radius,
           onValueChange = { radius = it }
         )
@@ -120,12 +136,16 @@ fun GlowingButtons() {
         Text(
           "Intensity",
           style = MaterialTheme.typography.bodyLarge,
-          color = MaterialTheme.colorScheme.secondary
+          color = Color.White
         )
         Slider(
           modifier = Modifier
             .weight(1f)
             .padding(20.dp),
+          colors = SliderDefaults.colors(
+            thumbColor = Androidy,
+            activeTrackColor = Androidy
+          ),
           value = intensity,
           valueRange = 0f..2f,
           onValueChange = { intensity = it }

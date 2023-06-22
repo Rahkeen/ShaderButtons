@@ -20,4 +20,10 @@ val Clay =  Color(0xFFd6ccc2)
 
 val Terra = Color(0xFFf28482)
 val Fairy = Color(0xFFc8b6ff)
+val Greeny = Color(0xFF84a59d)
+val Androidy = Color(0xFF32de84)
+val VibrantPurp = Color(0xFF8338ec)
+val VibrantYellow = Color(0xFFffd60a)
 
+val Lavender = Color(0xFFD5C6E0)
+val DarkBlue = Color(0xFF192A51)

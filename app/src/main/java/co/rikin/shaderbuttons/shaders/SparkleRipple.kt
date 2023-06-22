@@ -37,6 +37,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import co.rikin.shaderbuttons.ui.theme.Clay
 import co.rikin.shaderbuttons.ui.theme.Fairy
+import co.rikin.shaderbuttons.ui.theme.Forest
+import co.rikin.shaderbuttons.ui.theme.Greeny
 import co.rikin.shaderbuttons.ui.theme.Jedi
 import co.rikin.shaderbuttons.ui.theme.Moon
 import co.rikin.shaderbuttons.ui.theme.Night
@@ -45,6 +47,8 @@ import co.rikin.shaderbuttons.ui.theme.Pink80
 import co.rikin.shaderbuttons.ui.theme.Purple40
 import co.rikin.shaderbuttons.ui.theme.ShaderButtonsTheme
 import co.rikin.shaderbuttons.ui.theme.Terra
+import co.rikin.shaderbuttons.ui.theme.VibrantPurp
+import co.rikin.shaderbuttons.ui.theme.VibrantYellow
 import org.intellij.lang.annotations.Language
 import kotlin.math.cos
 import kotlin.math.sin
@@ -211,7 +215,7 @@ private val sparkleShaderRewritten = """
   }
 
   float softRing(vec2 uv, vec2 xy, float radius, float progress, float blur) {
-    float thickness = 0.05 * radius;
+    float thickness = 0.06 * radius;
     float currentRadius = radius * progress;
     float circleOuter = softCircle(uv, xy, currentRadius + thickness, blur);
     float circleInner = softCircle(uv, xy, max(currentRadius - thickness, 0.0), blur);
@@ -269,7 +273,7 @@ private val sparkleShaderRewritten = """
       float fade = min(fadeIn, 1.0 - fadeOutRipple);
       float waveAlpha = softCircle(p, center, in_maxRadius * scaleIn, 1.0) * fade * in_color.a;
       vec4 waveColor = vec4(in_color.rgb * waveAlpha, waveAlpha);
-      vec4 sparkleColor = vec4(in_sparkleColor.rgb * in_sparkleColor.a, in_sparkleColor.a) * sparkleAlpha;
+      vec4 sparkleColor = vec4(in_sparkleColor.rgb * in_sparkleColor.a, in_sparkleColor.a);
       float mask = in_hasMask == 1.0 ? in_shader.eval(p).a > 0.0 ? 1.0 : 0.0 : 1.0;
       return mix(waveColor, sparkleColor, sparkleAlpha) * mask;
   }
@@ -319,8 +323,8 @@ fun SparkleRipplePlayground() {
   var width by remember { mutableStateOf(0f) }
   var height by remember { mutableStateOf(0f) }
   var noisePhase by remember { mutableStateOf(0f) }
-  val effectColor = remember { Terra }
-  val sparkleColor = remember { Color.White }
+  val effectColor = remember { Greeny }
+  val sparkleColor = remember { VibrantYellow }
 
   val progress = remember {
     Animatable(0f)
@@ -353,7 +357,7 @@ fun SparkleRipplePlayground() {
           .width(200.dp)
           .height(80.dp)
           .clip(CircleShape)
-          .background(Color.LightGray)
+          .background(Color.DarkGray)
           .onSizeChanged { size ->
             width = size.width.toFloat()
             height = size.height.toFloat()
@@ -424,7 +428,7 @@ fun SparkleRipplePlayground() {
                   it.x,
                   it.y
                 )
-                progress.animateTo(1f, animationSpec = tween(1500, easing = EaseInOut))
+                progress.animateTo(1f, animationSpec = tween(1200, easing = EaseInOut))
                 awaitRelease()
                 progress.snapTo(0f)
               }

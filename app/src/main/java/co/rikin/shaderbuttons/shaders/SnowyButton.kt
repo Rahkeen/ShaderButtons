@@ -60,7 +60,6 @@ private val swedenSnowShader = """
         }
     }
     
-    
     return half4(snow) + half4(0.0784,0.1294,0.2392,1.0) + random*0.01;
   }
 """.trimIndent()
@@ -122,17 +121,25 @@ fun SnowyButton() {
 
     Box(
       modifier = Modifier
-        .width(250.dp)
-        .height(100.dp)
-        .clip(CircleShape)
-        .background(brush = ShaderBrush(shader))
-        .onSizeChanged { size ->
-          width = size.width.toFloat()
-          height = size.height.toFloat()
-        },
+        .fillMaxWidth()
+        .aspectRatio(1f)
+        .background(color = Color.White),
       contentAlignment = Alignment.Center
     ) {
-      Text(text = "❄️ it's cold", color = Color.White, fontSize = 18.sp)
+      Box(
+        modifier = Modifier
+          .width(200.dp)
+          .height(80.dp)
+          .clip(CircleShape)
+          .background(brush = ShaderBrush(shader))
+          .onSizeChanged { size ->
+            width = size.width.toFloat()
+            height = size.height.toFloat()
+          },
+        contentAlignment = Alignment.Center
+      ) {
+        Text(text = "❄️", color = Color.White, fontSize = 18.sp)
+      }
     }
   }
 }
